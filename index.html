@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#2196f3">
+<title>Lost & Found </title>
+<!-- Font embedding link goes here -->
+<link
+	href='https://fonts.googleapis.com/css?family=Poppins:400,600,500,300'
+	rel='stylesheet' type='text/css'>
+
+<!-- CSS link goes here -->
+<link rel="stylesheet" href="css/framework7.material.min.css">
+<link rel="stylesheet" href="css/framework7.material.colors.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/swipebox.min.css">
+<link rel="stylesheet" href="css/maxframes.css">
+
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey : "AIzaSyC17kAzbrTtgAI7ecs4KQ6QJWwNsOjtnjs",
+		authDomain : "lostandfound-a2c13.firebaseapp.com",
+		databaseURL : "https://lostandfound-a2c13.firebaseio.com",
+		storageBucket : "lostandfound-a2c13.appspot.com",
+		messagingSenderId : "671480781666"
+	};
+	firebase.initializeApp(config);
+</script>
+</head>
+<body class="theme-red"  style="background-image: url('img/whitebk.jpg');"> 
+	<div class="statusbar-overlay"></div>
+	<div class="panel-overlay"></div>
+	<div class="panel panel-left panel-reveal sidebar">
+		<div class="view">
+			<div class=" ">
+				<div data-page="panel-left" class="sidemenu leftmenusmall gradient">
+					<div class="item-content userprofile">
+						<div class="item-media">
+							<img id="current_user_img" src="img/pic2.png" width="44" />
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								<div class="item-title" id="current_user_name">Max Smith</div>
+							</div>
+							<div class="item-subtitle">Tunisia</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="list-block accordion-list">
+						<ul class="menu">
+						
+
+                                 <li><a href="home_shop.html"
+								class="item-link close-panel item-content "><div
+										class="itemmeniinner">
+										<i class="fa fa-home"></i><span>Home</span>
+									</div></a></li>
+                            
+                            
+                            <li><a href="profile1.html"
+								class="item-link close-panel item-content "><div
+										class="itemmeniinner">
+										<i class="fa fa-user"></i><span>Profile</span>
+									</div></a></li>
+                            
+                            
+							
+					
+
+							<li class="accordion-item"><a href="index.html#"
+								class="item-content item-link">
+									<div class="item-inner">
+										<div class="item-title">
+											<i class="fa fa-cart-plus"></i>My Psosts
+										</div>
+									</div>
+							</a>
+								<div class="accordion-item-content">
+									<div class="content-block">
+										<ul>
+											<li><a href="shoping_category.html"
+												class="item-link close-panel"><span>Shop</span></a></li>
+											<li><a href="productlist.html"
+												class="item-link close-panel"><span>Products</span></a></li>
+											<li><a href="product_details.html"
+												class="item-link close-panel"><span>Product
+														Details</span></a></li>
+											<li><a href="cart.html" class="item-link close-panel"><span>Cart</span></a></li>
+											<li><a href="payment.html" class="item-link close-panel"><span>Payment
+														Method</span></a></li>
+											<li><!--<a href="thankyou.html"
+												class="item-link close-panel"><span>Thank you</span></a>--></li>
+										</ul>
+									</div>
+								</div></li>
+                            
+                            
+                            <li><a href="messages.html"
+								class="item-link close-panel item-content "><div
+										class="itemmeniinner">
+										<i class="fa fa-comment-o"></i><span>Messages</span>
+									</div></a></li>
+                            
+							  <li><a href="about.html"
+								class="item-link close-panel item-content "><div
+										class="itemmeniinner">
+										<i class="fa fa-info-circle"></i><span>About</span>
+									</div></a></li>
+                            
+				
+					
+
+						</ul>
+					</div>
+
+					<div class="row ">
+						<div class="content-block col-100">
+							<a onclick="logout();"
+								class=" button color2 col-100 bigbtn white close-panel">Logout</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-right panel-reveal sidebar">
+		<div class="view">
+			<div class=" ">
+				<div data-page="panel-right" class="sidemenu leftmenusmall gradient">
+					<div class="item-content userprofile">
+						<div class="item-media">
+							<img src="img/pic1.png" width="44" />
+						</div>
+						<div class="item-inner">
+							<div class="item-title-row">
+								<div class="item-title">Max Smith</div>
+							</div>
+							<div class="item-subtitle">India</div>
+						</div>
+					</div>
+					<div class="page-content">
+						<div class="inputs-list content-block contactform">
+							<h2 class="maintitle  center">Contact us</h2>
+							<p class="center">We will be back on your provided email
+								address</p>
+							<form id="contact-form" method="post"
+								action="http://maxartkiller.in//website/maxarar/contactform/contact.php"
+								role="form">
+								<div class="alertmessage"></div>
+								<div class="list-block inputs-list">
+									<ul>
+										<li>
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-form-name"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title floating-label">First Name</div>
+													<div class="item-input">
+														<input id="form_name" type="text" name="name"
+															class="form-control"
+															placeholder="Please enter your firstname *"
+															required="required" data-error="Firstname is required.">
+														<div class="help-block with-errors"></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-form-name"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title floating-label">Last Name</div>
+													<div class="item-input">
+														<input id="form_lastname" type="text" name="surname"
+															class="form-control"
+															placeholder="Please enter your lastname *"
+															required="required" data-error="Lastname is required.">
+														<div class="help-block with-errors"></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-form-email"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title floating-label">E-mail</div>
+													<div class="item-input">
+														<input id="form_email" type="email" name="email"
+															class="form-control"
+															placeholder="Please enter your email *"
+															required="required" data-error="Valid email is required.">
+														<div class="help-block with-errors"></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-form-tel"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title floating-label">Phone</div>
+													<div class="item-input">
+														<input id="form_phone" type="tel" name="phone"
+															class="form-control"
+															placeholder="Please enter your phone">
+														<div class="help-block with-errors"></div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="align-top">
+											<div class="item-content">
+												<div class="item-media">
+													<i class="icon icon-form-comment"></i>
+												</div>
+												<div class="item-inner">
+													<div class="item-title floating-label">Message/Queries</div>
+													<div class="item-input">
+														<textarea id="form_message" name="message"
+															class="form-control resizable" rows="4"
+															required="required"
+															data-error="Please,leave us a message."></textarea>
+														<div class="help-block with-errors"></div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="content-block col-100">
+									<input type="submit" class="button button-fill"
+										value="Send message">
+								</div>
+							</form>
+
+						</div>
+
+						<div class="center content-block phone">
+							<div class="">
+								<img src="img/phone.png" alt="">
+							</div>
+							<h2 class="">000 000 000</h2>
+							<p class="">Call Us</p>
+						</div>
+						<div class="content-block socialblock">
+							<h2 class="center">We are at social</h2>
+							<p class="center">Get connected with us on social</p>
+							<ul class="socials">
+								<li><a href="index.html" class="fb"><i
+										class="fa fa-facebook"></i></a></li>
+								<li><a href="index.html" class="tw"><i
+										class="fa fa-twitter"></i></a></li>
+								<li><a href="index.html" class="gp"><i
+										class="fa fa-google-plus"></i></a></li>
+								<li><a href="index.html" class="pin"><i
+										class="fa fa-pinterest"></i></a></li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="row no-gutter ">
+						<div class="content-block col-100">
+							<!--<a href="contactus.html"
+								class=" button  color2  bigbtn col-100 close-panel">Locate
+								Us</a>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="views pageview">
+		<div class="view view-main">
+			<div class="pages">
+				<div data-page="index" class="page">
+					<div class="page-content landingpage">
+						
+						<div class="buttonbar row no-gutter">
+							<div class="content-block col-50">
+								<a href="sign-in.html" class="button-fill button col-100 white">Sign
+									in</a>
+							</div>
+							<div class="content-block col-50">
+								<a href="register.html" class="color2 button col-100">Sign
+									Up</a>
+							</div>
+						</div>
+						<img src="img/w.png" alt="" class="bgimg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a href="home.html" id="btn_go_home" class="button-fill button col-100"
+		style="display: none">home</a>
+	<a href="sign-in.html" id="btn_go_sign_in"
+		class="button-fill button col-100" style="display: none">sign in</a>
+
+
+	<!-- JS link goes here -->
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/framework7.min.js"></script>
+	<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+	<script type="text/javascript" src="contactform/validator.js"></script>
+	<script type="text/javascript" src="contactform/contact.js"></script>
+	<script type="text/javascript" src="js/maxframes.js"></script>
+
+
+
+
+	<script>
+function signIn(){
+	var email = $('#input_sign_in_email').val();
+	var password = $('#input_sign_in_password').val();
+	
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+	firebase.auth().onAuthStateChanged(function(user) {
+		  if (user != null) {
+		    // User is signed in.
+			  document.getElementById("btn_go_home").click();
+			  document.getElementById("current_user_name").innerHTML  = user.displayName;
+			  document.getElementById("current_user_img").src  = user.photoURL;
+			  
+			   
+			     
+		  } else {
+		    // No user is signed in.
+			  document.getElementById("btn_go_sign_in").click();
+			  
+		  }
+		});
+}
+</script>
+
+
+	<script>
+function register(){
+	var name = $('#input_register_name').val();
+	var email = $('#input_register_email').val();
+	var password = $('#input_register_password').val();
+
+
+	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  
+		  		  
+		});
+
+	firebase.auth().onAuthStateChanged(function(user) {
+		  if (user != null) {
+		    // User is signed in.
+		    user.updateProfile({
+				  displayName: name,
+			      photoURL: "https://firebasestorage.googleapis.com/v0/b/lostandfound-a2c13.appspot.com/o/profilepics%2FGadour?alt=media&token=92a07a81-00cc-45b8-92c9-426309270fa0"
+			    }).then(function() {
+			      // Update successful.
+			    	/*firebase.database().ref('usersTizen/' + user.uid).set({
+			    	    username: user.displayName,
+			    	    email: user.email,
+			    	    //password: password,
+			    	    profile_picture : user.photoURL
+			    	  });*/
+
+			    	  var userToAdd = {
+			    			    username: user.displayName,
+					    	    email: user.email,
+					    	    password: password,
+					    	    uid: user.uid,
+					    	    profile_picture : user.photoURL
+		    				  }
+		    		  firebase.database().ref("usersTizen/").push(userToAdd,function(error) {
+		    			  alert('Success');
+		    			  document.getElementById("btn_go_home").click();
+		    			  document.getElementById("current_user_name").innerHTML  = userToAdd.username;
+		    			  document.getElementById("current_user_img").src  = userToAdd.profile_picture;
+			    		  });
+
+			    	  			    	  
+			    				      
+			    }, function(error) {
+			      // An error happened.
+			    	alert('Error');
+			    });
+			  
+			   
+			     
+		  } else {
+		    // No user is signed in.
+			  document.getElementById("btn_go_sign_in").click();
+			  
+		  }
+		});
+	
+}
+
+
+
+
+
+
+
+function logout(){
+	firebase.auth().signOut().then(function() {
+		// Sign-out successful.
+		//window.location = "index.html";
+		document.getElementById("btn_go_sign_in").click();
+	}, function(error) {
+		// An error happened.
+		
+	});
+	
+}
+
+
+</script>
+
+	<script>
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+	  if (user != null) {
+	    // User is signed in.
+		  document.getElementById("btn_go_home").click();
+		  document.getElementById("current_user_name").innerHTML  = user.displayName;
+		  document.getElementById("current_user_img").src  = user.photoURL;
+		  
+		   
+		     
+	  } else {
+	    // No user is signed in.
+		  document.getElementById("btn_go_sign_in").click();
+		  
+	  }
+	});
+
+</script>
+</body>
+</html>
